@@ -8,3 +8,4 @@ jspm_packages
 typescript/bin/
 deploy/
 .idea/
+.DS_Store
