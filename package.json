@@ -1,0 +1,28 @@
+{
+  "name": "dog-slack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "clean": "rm -rf deploy && rm -rf typescript/bin",
+    "deploy": "npm run clean && npm run build && mkdir -p deploy && cp serverless.yml deploy/serverless.yml && cp -r typescript/bin/src/* deploy && cd deploy && serverless deploy && cd ..",
+    "build": "tsc -p ./typescript/tsconfig.json",
+    "lint": "tslint ./typescript/**/*.ts",
+    "test": "TS_NODE_PROJECT=typescript mocha -t 10000 -r ts-node/register ./typescript/test/**/*.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.0.1",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.0.14",
+    "@types/sinon": "^2.3.3",
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.8",
+    "ts-node": "^3.2.0",
+    "tslint": "^4.5.1",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,16 @@
+service: dog-slack-service
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  dog:
+    handler: handler.dog
+    events:
+      - http:
+          method: post
+          path: /dog
+          integration: lambda
+          request:
+            passThrough: NEVER
